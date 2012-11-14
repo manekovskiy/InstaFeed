@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel.Syndication;
 using System.Text;
@@ -12,6 +11,14 @@ namespace InstaFeed
 	{
 		public static void Main(string[] args)
 		{
+			/*
+def parse_instapaper_date(self, date):
+if date == u'today':
+    t = time.localtime()
+    return u'%d/%d' % (t.tm_mon, t.tm_mday)
+return date
+*/
+
 			var options = new CommandLineOptions();
 			var parser = new CommandLineParser(new CommandLineParserSettings(
 				false /*case sensitive*/,

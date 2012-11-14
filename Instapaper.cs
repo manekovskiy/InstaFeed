@@ -41,7 +41,10 @@ namespace InstaFeed
 					HtmlDocument htmlDocument = Owner.HttpHelper.Get(currentPage);	
 					foreach (HtmlNodeNavigator node in htmlDocument.CreateNavigator().Select(ArticlesXPath))
 					{
-						items.Add(new SyndicationItem(node.CurrentNode.InnerText, string.Empty, new Uri(node.CurrentNode.Attributes["href"].Value)));
+						var link = new Uri(node.CurrentNode.Attributes["href"].Value);
+						var syndicationItem = new SyndicationItem(node.CurrentNode.InnerText, string.Empty, link);
+						syndicationItem.Links.Add(new SyndicationLink(link));
+						items.Add(syndicationItem);
 						
 						Owner.Message(new MessageEventArgs(string.Format("Added article \"{0}\".", node.CurrentNode.InnerText)));
 					}
