@@ -45,4 +45,5 @@ Archive all items in _Read Later_ and _My Custom Dir_ directories:
 Generate feed from all directories, add datestamp to the output file and archive all items in all directories.
 
     instafeed -c "rss, archive" -u johndoe@domain.com -p johndoepasswd -o "[%date:/=%]_instapaper_unread_articles.rss"
+    instafeed -command "rss, archive" -username johndoe@domain.com -password johndoepasswd -o "[%date:/=%]_instapaper_unread_articles.rss"
 
