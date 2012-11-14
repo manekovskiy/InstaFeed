@@ -13,12 +13,13 @@ Command line parameters
 
 Utility can be parametrized. Full list of available parameters:
 
-    -c, --command        Specifies command: list|rss|archive. Required.
+    -c, --command        Required. Specifies command or comma separated list of
+						 commands: list|rss|archive. Required.
     -u, --username       Specifies Instapaper account username. Required.
     -p, --password       Specifies Instapaper account password. Required.
     -d, --directories    Comma separated list of directories to include.
                          Names case insensitive.
-                         Required if -c|--command is equal to rss|archive.
+                         If not specified all directories are processed.
     -o, --output         Specifies output file name and destination for RSS feed. Equal to .\feed.rss by default.
                          Can contain environment variables.
     -h, --help           Displays help screen.
@@ -41,6 +42,8 @@ Archive all items in _Read Later_ and _My Custom Dir_ directories:
     instafeed -c archive -u johndoe@domain.com -p johndoepasswd -d "Read Later, My Custom Dir"
     instafeed --command archive --username johndoe@domain.com --password johndoepasswd --directories "Read Later, My Custom Dir"
 
-Generate feed from all directories, add datestamp to the output file and archive all items.
-    instafeed -c list, archive -u johndoe@domain.com -p johndoepasswd -o [%DATE:/=%]\_Instapaper\_Unread_Articles.rss
+Generate feed from all directories, add datestamp to the output file and archive all items in all directories.
+
+    instafeed -c "rss, archive" -u johndoe@domain.com -p
+johndoepasswd -o "[%date:/=%]_instapaper_unread_articles.rss"
 
